@@ -1290,6 +1290,11 @@ video {
   background-color: rgb(78 205 196 / 0.1);
 }
 
+.hover\:text-\[\#1DA1F2\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(29 161 242 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-brand-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(45 90 157 / var(--tw-text-opacity, 1));
@@ -1305,14 +1310,14 @@ video {
   color: rgb(78 205 196 / var(--tw-text-opacity, 1));
 }
 
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
 .hover\:text-green-500:hover {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:shadow-xl:hover {

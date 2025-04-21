@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaLinkedinIn, FaWhatsapp, FaEnvelope } from 'react-icons/fa'
+import { FaLinkedinIn, FaWhatsapp, FaTwitter, FaEnvelope } from 'react-icons/fa'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -17,6 +17,11 @@ const Footer = () => {
       name: 'WhatsApp',
       href: 'https://wa.me/917340803706',
       icon: FaWhatsapp
+    },
+    {
+      name: 'Twitter',
+      href: '#',
+      icon: FaTwitter
     },
     { 
       name: 'Email', 

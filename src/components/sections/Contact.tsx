@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaWhatsapp, FaTwitter } from 'react-icons/fa'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -110,6 +110,14 @@ const Contact = () => {
                   className="text-brand-slate hover:text-green-500 transition-colors"
                 >
                   <FaWhatsapp className="text-2xl" />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-slate hover:text-[#1DA1F2] transition-colors"
+                >
+                  <FaTwitter className="text-2xl" />
                 </a>
               </div>
             </div>
