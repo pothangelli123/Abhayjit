@@ -136,27 +136,19 @@ export default function Contact() {
                   href="https://www.linkedin.com/in/abhayjit-singh/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-slate hover:opacity-80 transition-opacity"
+                  className="text-brand-slate hover:text-[#0077B5] transition-colors"
                   aria-label="LinkedIn Profile"
                 >
-                  <img 
-                    src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                    alt="LinkedIn"
-                    className="w-6 h-6"
-                  />
+                  <FaLinkedin size={24} />
                 </a>
                 <a
                   href="https://twitter.com/AbhayjitSingh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-slate hover:opacity-80 transition-opacity"
+                  className="text-brand-slate hover:text-[#1DA1F2] transition-colors"
                   aria-label="Twitter Profile"
                 >
-                  <img 
-                    src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
-                    alt="Twitter"
-                    className="w-6 h-6"
-                  />
+                  <FaTwitter size={24} />
                 </a>
               </div>
             </div>

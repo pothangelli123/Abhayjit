@@ -105,10 +105,10 @@
                     </p>
                     <div style="text-align:center;margin:20px 0">
                       <a href="https://linkedin.com/in/abhayjit-singh" style="margin:0 10px;text-decoration:none" target="_blank">
-                        <img alt="LinkedIn" height="32" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" style="display:inline-block" width="32" />
+                        <img alt="LinkedIn" height="32" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" style="display:inline-block" width="32" />
                       </a>
-                      <a href="https://twitter.com" style="margin:0 10px;text-decoration:none" target="_blank">
-                        <img alt="Twitter" height="28" src="https://abhayjitsingh.com/images/twitter.webp" style="display:inline-block" width="28" />
+                      <a href="https://twitter.com/AbhayjitSingh" style="margin:0 10px;text-decoration:none" target="_blank">
+                        <img alt="Twitter" height="32" src="https://cdn-icons-png.flaticon.com/512/733/733579.png" style="display:inline-block" width="32" />
                       </a>
                     </div>
                     
