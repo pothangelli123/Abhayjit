@@ -139,7 +139,7 @@ export async function POST(request: Request) {
                         <img alt="LinkedIn" height="32" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" style="display:inline-block" width="32" />
                       </a>
                       <a href="https://twitter.com" style="margin:0 10px;text-decoration:none" target="_blank">
-                        <img alt="Twitter" height="28" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/X_icon_2.svg" style="display:inline-block" width="28" />
+                        <img alt="Twitter" height="28" src="https://abhayjitsingh.com/images/twitter.webp" style="display:inline-block" width="28" />
                       </a>
                     </div>
                     

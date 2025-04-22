@@ -136,25 +136,27 @@ export default function Contact() {
                   href="https://www.linkedin.com/in/abhayjit-singh/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-slate hover:text-brand-primary transition-colors"
+                  className="text-brand-slate hover:opacity-80 transition-opacity"
+                  aria-label="LinkedIn Profile"
                 >
-                  <FaLinkedin className="text-2xl" />
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                    alt="LinkedIn"
+                    className="w-6 h-6"
+                  />
                 </a>
                 <a
-                  href="https://wa.me/917340803706"
+                  href="https://twitter.com/AbhayjitSingh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-slate hover:text-green-500 transition-colors"
+                  className="text-brand-slate hover:opacity-80 transition-opacity"
+                  aria-label="Twitter Profile"
                 >
-                  <FaWhatsapp className="text-2xl" />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-slate hover:text-[#1DA1F2] transition-colors"
-                >
-                  <FaTwitter className="text-2xl" />
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                    alt="Twitter"
+                    className="w-6 h-6"
+                  />
                 </a>
               </div>
             </div>
@@ -222,29 +224,36 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent resize-none"
                   required
                 />
               </div>
+
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-700 text-sm">
+                    Message received successfully! Please check your email for confirmation.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-700 text-sm">{errorMessage}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white py-2 px-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg ${
-                  isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                className={`w-full py-3 px-6 text-white font-medium rounded-lg transition-all duration-200 ${
+                  isSubmitting
+                    ? 'bg-brand-slate cursor-not-allowed'
+                    : 'bg-brand-primary hover:bg-brand-secondary'
                 }`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
-              {submitStatus === 'success' && (
-                <div className="mt-4 p-3 bg-green-50 text-green-700 rounded-lg">
-                  Message received successfully! Please check your email for confirmation.
-                </div>
-              )}
-              {submitStatus === 'error' && (
-                <div className="mt-4 p-3 bg-red-50 text-red-700 rounded-lg">
-                  {errorMessage || 'Failed to send message. Please try again.'}
-                </div>
-              )}
             </form>
           </motion.div>
         </div>
