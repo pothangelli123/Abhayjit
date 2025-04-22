@@ -4,25 +4,62 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaWhatsapp, FaTwitter } from 'react-icons/fa'
 
-const Contact = () => {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: '',
+    message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    try {
+      console.log('Submitting form data:', formData)
+      
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+      console.log('Response data:', data)
+
+      if (!response.ok) {
+        throw new Error(data.error?.message || 'Failed to send message')
+      }
+
+      setSubmitStatus('success')
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }))
   }
 
@@ -191,16 +228,27 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-brand-primary text-white py-2 px-4 rounded-lg hover:bg-brand-secondary transition-colors"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white py-2 px-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg ${
+                  isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                }`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-3 bg-green-50 text-green-700 rounded-lg">
+                  Message received successfully! Please check your email for confirmation.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-3 bg-red-50 text-red-700 rounded-lg">
+                  {errorMessage || 'Failed to send message. Please try again.'}
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
       </div>
     </section>
   )
-}
-
-export default Contact 
+} 
